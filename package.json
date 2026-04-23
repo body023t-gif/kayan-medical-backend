@@ -1,0 +1,28 @@
+{
+  "name": "mobile-backend",
+  "version": "1.0.0",
+  "description": "Minimal production-safe backend for mobile ecommerce",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "test:runner": "node test-runner.js",
+    "test:e2e": "jest --runInBand",
+    "sanity:prod": "node prod-sanity.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.15.2",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.9.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.8.0",
+    "jsonwebtoken": "^9.0.3",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "jest": "^30.0.0",
+    "supertest": "^7.1.1"
+  }
+}
