@@ -133,7 +133,7 @@ function spawnBackend({ paymobBaseUrl }) {
     PORT: String(BACKEND_PORT),
     JWT_SECRET: process.env.JWT_SECRET || "test_jwt_secret_change_me",
     PAYMOB_BASE_URL: paymobBaseUrl,
-    TEST_MODE: "1",
+    TEST_MODE: "0",
     // Required in non-test mode; in TEST_MODE we allow them to be empty/dummy.
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID || "test",
     FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL || "test@example.com",

@@ -1,104 +1,22 @@
 {
-  "started_at": "2026-04-23T08:25:25.727Z",
+  "started_at": "2026-04-24T20:36:53.998Z",
   "base_url": "http://localhost:3000",
   "sections": [
     {
       "name": "AUTH",
-      "ok": true,
-      "reason": null,
+      "ok": false,
+      "reason": "expected 200, got 401",
       "details": null,
-      "at": "2026-04-23T08:25:26.324Z"
-    },
-    {
-      "name": "PRODUCTS",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:26.326Z"
-    },
-    {
-      "name": "SEARCH",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:26.330Z"
-    },
-    {
-      "name": "FAVORITES",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:26.348Z"
-    },
-    {
-      "name": "ADDRESS",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:26.360Z"
-    },
-    {
-      "name": "ORDERS",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:26.369Z"
-    },
-    {
-      "name": "PAYMENT",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:28.554Z"
-    },
-    {
-      "name": "PAYMENT_EDGE",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:29.632Z"
-    },
-    {
-      "name": "REVIEWS",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:29.644Z"
-    },
-    {
-      "name": "COUPONS",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:29.651Z"
-    },
-    {
-      "name": "REFUND",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:29.660Z"
-    },
-    {
-      "name": "SECURITY",
-      "ok": true,
-      "reason": null,
-      "details": null,
-      "at": "2026-04-23T08:25:29.665Z"
-    },
-    {
-      "name": "RATE_LIMIT",
-      "ok": true,
-      "reason": null,
-      "details": {
-        "limited": 29
-      },
-      "at": "2026-04-23T08:25:29.719Z"
+      "at": "2026-04-24T20:36:54.143Z"
     }
   ],
   "totals": {
-    "passed": 13,
-    "failed": 0
+    "passed": 0,
+    "failed": 1
   },
-  "finished_at": "2026-04-23T08:25:29.719Z"
+  "fatal": {
+    "message": "Critical failure: AUTH",
+    "at": "2026-04-24T20:36:54.143Z"
+  },
+  "finished_at": "2026-04-24T20:36:54.143Z"
 }

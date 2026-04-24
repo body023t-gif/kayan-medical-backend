@@ -1,10 +1,23 @@
+const { logStep, logError, truncateToken } = require("../utils/logger");
+
 function requireFirebaseToken(body) {
-  const token = body && body.firebase_token;
+  logStep("REQUEST", { bodySnapshot: body });
+  const token =
+    body?.firebaseToken ||
+    body?.firebase_token ||
+    body?.idToken;
+  logStep("TOKEN_RECEIVED", {
+    tokenType: typeof token,
+    tokenPreview: truncateToken(token),
+  });
+
   if (!token || typeof token !== "string") {
     const error = new Error("firebase_token is required.");
     error.status = 400;
+    logError("VALIDATION_FAIL", error);
     throw error;
   }
+
   return token;
 }
 

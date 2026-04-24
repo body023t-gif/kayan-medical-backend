@@ -2,9 +2,23 @@ const jwt = require("jsonwebtoken");
 const admin = require("../config/firebase");
 const env = require("../config/env");
 const { get, run } = require("../config/database");
+const { logStep, logError, truncateToken } = require("../utils/logger");
 
 async function verifyFirebaseToken(idToken) {
-  return admin.auth().verifyIdToken(idToken);
+  logStep("TOKEN_RECEIVED", { tokenPreview: truncateToken(idToken) });
+  logStep("VERIFY_START", { provider: "firebase-admin", method: "verifyIdToken" });
+  try {
+    const decoded = await admin.auth().verifyIdToken(idToken);
+    logStep("VERIFY_SUCCESS", {
+      uid: decoded && decoded.uid,
+      phone_number: decoded && decoded.phone_number,
+      name: decoded && decoded.name,
+    });
+    return decoded;
+  } catch (error) {
+    logError("VERIFY_FAIL", error);
+    throw error;
+  }
 }
 
 async function findOrCreateUserByIdentity({ phone, firebaseUid, name = null }) {

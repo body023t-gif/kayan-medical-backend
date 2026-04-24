@@ -1,14 +1,10 @@
 const admin = require("firebase-admin");
-const env = require("./env");
+const path = require("path");
 
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
-      projectId: env.firebaseProjectId,
-      clientEmail: env.firebaseClientEmail,
-      privateKey: env.firebasePrivateKey,
-    }),
-  });
-}
+const serviceAccount = require(path.join(__dirname, "../../serviceAccountKey.json"));
 
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+console.log("🔥 USING PROJECT:", serviceAccount.project_id);
 module.exports = admin;

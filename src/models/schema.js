@@ -142,6 +142,14 @@ async function createTables() {
     )
   `);
   await run("CREATE INDEX IF NOT EXISTS idx_refunds_order ON refunds(order_id)");
+
+  await run(`
+    CREATE TABLE IF NOT EXISTS shipping_rules (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      city TEXT UNIQUE NOT NULL,
+      cost REAL NOT NULL
+    )
+  `);
 }
 
 module.exports = { createTables };

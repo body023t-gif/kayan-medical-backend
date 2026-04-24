@@ -7,14 +7,21 @@ if (String(process.env.NODE_ENV || "").trim() === "production") {
   process.env.TEST_MODE = "0";
 }
 
+const useFirebaseJson = true; // لأنك بتستخدم serviceAccountKey.json
+
 const requiredEnvVars = [
   "PORT",
   "JWT_SECRET",
   "PAYMOB_BASE_URL",
-  "FIREBASE_PROJECT_ID",
-  "FIREBASE_CLIENT_EMAIL",
-  "FIREBASE_PRIVATE_KEY",
 ];
+
+if (!useFirebaseJson) {
+  requiredEnvVars.push(
+    "FIREBASE_PROJECT_ID",
+    "FIREBASE_CLIENT_EMAIL",
+    "FIREBASE_PRIVATE_KEY"
+  );
+}
 
 for (const key of requiredEnvVars) {
   if (!process.env[key] || !process.env[key].trim()) {
